@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<title>SIA Admin Dashboard</title>
+</head>
+<body>
+  <div id="wrapper">
+    <nav class="navbar navbar-default navbar-static-top active" role="navigation">
+      <a class="navbar-brand" href="index.html"> SIA Admin Dashboard </a>
+
+    </nav>
+
+<ul class="nav nav-tabs">
+
+  <li class="active"><a href="#requests" data-toggle="tab" >Passenger Requests</a></li>
+  <li><a href="#completed" data-toggle="tab">Completed</a></li>
+
+</ul>
+
+<div class="tab-content" style="margin-left:5%">
+  <div id="requests" class="tab-pane fade in active">
+    <h3>Passenger Requests</h3>
+    <p>Tap once for "in progress", tap again to "complete" the task.
+<div class="list-group" style="margin-right:5%">
+  <button type="button" class="list-group-item">Lynda at 41E requires a cup of hot coffee.</button>
+  <button type="button" class="list-group-item">Manny at 33B needs a cup of cold tea.</button>
+  <button type="button" class="list-group-item">Daniel at 25D wants his lunch served.</button>
+  <button type="button" class="list-group-item">Harry at 55E likes to do some shopping.</button>
+  <button type="button" class="list-group-item">Michelle at 60A is feeling uncomfortable.</button>
+</div>
+    </p>
+  </div>
+  <div id="completed" class="tab-pane fade">
+    <h3>Completed</h3>
+    <p>
+<div class="completed-list list-group" style="margin-right:5%">
+  <button type="button" class="list-group-item list-group-item-success">Edwin at 38C wants a bag of chips.</button>
+  <button type="button" class="list-group-item list-group-item-success">Linda at 47H lieks a cup of orange juice.</button>
+</div>
+    </p>
+  </div>
+</div>
+
+
+  <script>
+$(".list-group-item").click(function() {
+  if ($(this).hasClass("list-group-item-warning")) {
+        $(this).removeClass("list-group-item-warning");
+        $(this).addClass("list-group-item-success");
+        $(this).fadeOut("slow",function(){ 
+          $(this).show().appendTo(".completed-list");
+          });
+  } else {
+        $(this).toggleClass("list-group-item-warning");
+  }
+});
+
+    </script>
+
+  </div>
+</body>
+</html>
