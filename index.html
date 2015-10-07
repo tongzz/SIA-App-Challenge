@@ -5,13 +5,43 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <title>SIA Admin Dashboard</title>
+
+<style type="text/css">
+
+.userChat{
+    width: 50%;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    margin-right: 0;
+    margin-left: auto;
+}
+
+.adminChat {
+    background-color: #E7E7E7;
+    margin-left: 0;
+    margin-right: auto;
+    margin-top: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+</style>
+
 </head>
 <body>
+
   <div id="wrapper">
+
+
+    <!-- Navigation Bar --> 
     <nav class="navbar navbar-default navbar-static-top active" role="navigation">
-      <a class="navbar-brand" href="index.html"> SIA Admin Dashboard </a>
+      <a class="navbar-brand" href="index.html">SIA Admin Dashboard</a>
+      <img alt="Brand" src="sia-logo.png" class="img-responsive" style="padding:10px 0px;">
 
     </nav>
 
@@ -21,20 +51,63 @@
   <li><a href="#completed" data-toggle="tab">Completed</a></li>
 
 </ul>
-
+<!-- 1st tab: Passenger Request --> 
 <div class="tab-content" style="margin-left:5%">
   <div id="requests" class="tab-pane fade in active">
     <h3>Passenger Requests</h3>
-    <p>Tap once for "in progress", tap again to "complete" the task.
-<div class="list-group" style="margin-right:5%">
-  <button type="button" class="list-group-item">Lynda at 41E requires a cup of hot coffee.</button>
-  <button type="button" class="list-group-item">Manny at 33B needs a cup of cold tea.</button>
-  <button type="button" class="list-group-item">Daniel at 25D wants his lunch served.</button>
-  <button type="button" class="list-group-item">Harry at 55E likes to do some shopping.</button>
-  <button type="button" class="list-group-item">Michelle at 60A is feeling uncomfortable.</button>
-</div>
-    </p>
+    <div class="row">
+     <div class="col-md-6" style="margin-bottom: 10px;">
+        <div class="input-group">
+          <input type="text" class="form-control" id="newRequest" placeholder="Type in your new request">
+          <span class="input-group-btn">
+            <button class="btn btn-info" type="button">Submit New Request</button>
+          </span>
+        </div><!-- /input-group -->
+      </div>
+    </div>
+
+    <div class="list-group" style="margin-right:5%">
+      
+      <button type="button" class="list-group-item" data-toggle="modal" data-target="#myModal">
+        <span class="label label-primary">New</span>
+          Lynda at 41E requires a cup of hot coffee.
+              <span class="glyphicon glyphicon-share-alt pull-right" aria-hidden="true" aria-label"Reply"></span>
+      </button>
+
+      <button type="button" class="list-group-item" data-toggle="modal" data-target="#myModal">
+        <span class="label label-primary">New</span>
+         Manny at 33B needs a cup of cold tea.
+
+            <span class="glyphicon glyphicon-share-alt pull-right" aria-hidden="true" aria-label"Reply"></span>
+      </button>
+      
+
+      <button type="button" class="list-group-item clearfix" data-toggle="modal" data-target="#myModal">
+        <span class="label label-primary">New</span>
+         Daniel at 25D wants his lunch served.
+
+            <span class="glyphicon glyphicon-share-alt pull-right" aria-hidden="true" aria-label"Reply"></span>
+      </button>
+
+
+      <button type="button" class="list-group-item" data-toggle="modal" data-target="#myModal">
+        <span class="label label-primary">New</span>
+          Harry at 55E likes to do some shopping.
+            <span class="glyphicon glyphicon-share-alt pull-right" aria-hidden="true" aria-label"Reply"></span>
+      </button>
+      
+      <button type="button" class="list-group-item" data-toggle="modal" data-target="#myModal">
+        <span class="label label-primary">New</span>
+         Michelle at 60A is feeling uncomfortable.
+            <span class="glyphicon glyphicon-share-alt pull-right" aria-hidden="true" aria-label"Reply"></span>
+      </button>
+    </div>
+
   </div>
+  
+
+<!-- 2nd tab: Completed Requests--> 
+
   <div id="completed" class="tab-pane fade">
     <h3>Completed</h3>
     <p>
@@ -46,19 +119,79 @@
   </div>
 </div>
 
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Chatroom</h4>
+      </div>
+      <div class="modal-body">
+
+        <p class="bg-success text-right userChat" >Hi, can I get a bottle of beer?</p>
+        <p class="bg-default adminChat">Sure, what beer would you like?</p>
+        <p class="bg-success text-right userChat">Perhaps Carlsberg would be nice.</p>
+        <p class="bg-default adminChat">Carlsberg it would be, would you like it in a can or a bottle?</p>
+        <p class="bg-success text-right userChat">A bottle</p>
+        <p class="bg-default adminChat">Alright, would you need ice cubes?</p>
+        <p class="bg-success text-right userChat">Yes please.</p>  
+        <p class="bg-default adminChat">Great, I'll be there in five.</p>
+
+      
+      </div>
+      <div class="modal-footer">
+
+         <div class="input-group">
+              <input type="text" class="form-control" placeholder="Please type your reply...">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button">Send</button>
+              </span>
+            </div><!-- /input-group -->
+      </div>
+    </div>
+  </div>
+</div>
+
 
   <script>
-$(".list-group-item").click(function() {
-  if ($(this).hasClass("list-group-item-warning")) {
-        $(this).removeClass("list-group-item-warning");
-        $(this).addClass("list-group-item-success");
-        $(this).fadeOut("slow",function(){ 
-          $(this).show().appendTo(".completed-list");
-          });
-  } else {
-        $(this).toggleClass("list-group-item-warning");
+
+// <----------- Toggle change of list-group-item background color ------>
+// $(".list-group-item").click(function() {
+//   if ($(this).hasClass("list-group-item-warning")) {
+//         $(this).removeClass("list-group-item-warning");
+//         $(this).addClass("list-group-item-success");
+
+//         // fading effect and post to "completed" list
+//         $(this).fadeOut("slow",function(){ 
+//           $(this).show().appendTo(".completed-list");
+//           });
+//   } else {
+//         $(this).toggleClass("list-group-item-warning");
+//   }
+// });
+
+// <---------- Toggle change of Status Badges ------->
+$(".label").click(function() {
+  if ($(this).hasClass("label-warning")) {
+        $(this).replaceWith('<span class="label label-success">Done</span>');
+      } else {
+        $(this).replaceWith('<span class="label label-warning">In Progress</span>');
   }
 });
+
+
+
+
+
+$(".btn-info").click(function() {
+  var userInput = $("input#newRequest").val();
+  var newRequest = '<button type="button" class="list-group-item" data-toggle="modal" data-target="#myModal"><span class="label label-primary">New</span> '+
+    userInput+
+    '<span class="glyphicon glyphicon-share-alt pull-right" aria-hidden="true" aria-label"Reply"></span></button>'
+  $(".list-group").append(newRequest);
+
+  });
 
     </script>
 
